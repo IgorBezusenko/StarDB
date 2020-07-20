@@ -22,7 +22,7 @@ export default class extends Component {
     const planet = this.state.showRandomPlanet ? <RandomPlanet /> : null;
 
     return (
-      <div>
+      <div className="stardb-app">
         <Header />
         {planet}
 
