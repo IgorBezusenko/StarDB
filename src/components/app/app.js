@@ -48,6 +48,8 @@ export default class App extends Component {
         </div>
 
         <PersonPage />
+        <PersonPage />
+        <PersonPage />
       </div>
     );
   }

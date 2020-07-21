@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import ItemList from "../item-list/item-list";
 import PersonDetails from "../person-details/person-details";
 import ErrorIndicator from "../error-indicator/error-indicator";
+import ErrorButton from "../error-button/error-button";
 
 import "./person-page.css";
 
