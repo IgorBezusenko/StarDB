@@ -2,8 +2,7 @@ import React, { Component } from "react";
 
 import "./person-details.css";
 import SwapiService from "../../services/swapi-service";
-import Spinner from "../spinner";
-import ErrorButton from "../error-button";
+import ErrorButton from "../error-button/error-button";
 
 export default class PersonDetails extends Component {
   swapiService = new SwapiService();
@@ -27,6 +26,7 @@ export default class PersonDetails extends Component {
     if (!personId) {
       return;
     }
+
     this.swapiService.getPerson(personId).then((person) => {
       this.setState({ person });
     });
@@ -35,21 +35,17 @@ export default class PersonDetails extends Component {
   render() {
     const { person } = this.state;
     if (!person) {
-      return <Spinner />;
+      return <span>Select a person from a list</span>;
     }
 
-    if (!this.state.person) {
-      return <span>Seletc a person from a list</span>;
-    }
-
-    const { id, name, gender, birthYear, eyeColor } = this.state.person;
+    const { id, name, gender, birthYear, eyeColor } = person;
 
     return (
       <div className="person-details card">
         <img
           className="person-image"
           src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
-          alt="caracter"
+          alt="character"
         />
 
         <div className="card-body">
