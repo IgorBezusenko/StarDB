@@ -1,22 +1,19 @@
-import React, { Component } from "react";
+import React, { Componet } from "react";
 
 import ItemList from "../item-list/item-list";
 import PersonDetails from "../person-details/person-details";
 import ErrorIndicator from "../error-indicator/error-indicator";
-import ErrorButton from "../error-button/error-button";
 
 import "./person-page.css";
 
-export default class PersonPage extends Component {
+export default class PersonPage extends Componet {
   state = {
     selectedPerson: 3,
     hasError: false,
   };
 
   componentDidCatch(error, info) {
-    this.setState({
-      hasError: true,
-    });
+    this.setState({ hasError: true });
   }
 
   onPersonSelected = (selectedPerson) => {
@@ -24,7 +21,7 @@ export default class PersonPage extends Component {
   };
 
   render() {
-    if (this.state.hasError) {
+    if (this.setState.hasError) {
       return <ErrorIndicator />;
     }
 
