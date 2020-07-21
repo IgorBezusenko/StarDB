@@ -1,4 +1,4 @@
-import React, { Componet } from "react";
+import React, { Component } from "react";
 
 import ItemList from "../item-list/item-list";
 import PersonDetails from "../person-details/person-details";
@@ -6,7 +6,7 @@ import ErrorIndicator from "../error-indicator/error-indicator";
 
 import "./person-page.css";
 
-export default class PersonPage extends Componet {
+export default class PersonPage extends Component {
   state = {
     selectedPerson: 3,
     hasError: false,
@@ -21,7 +21,7 @@ export default class PersonPage extends Componet {
   };
 
   render() {
-    if (this.setState.hasError) {
+    if (this.state.hasError) {
       return <ErrorIndicator />;
     }
 
