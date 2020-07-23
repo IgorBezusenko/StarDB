@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import ItemList from "../item-list/item-list";
-import PersonDetails from "../person-details/person-details";
+import ItemDetails from "../item-details";
 import ErrorIndicator from "../error-indicator/error-indicator";
 
 import "./person-page.css";
@@ -11,6 +11,7 @@ import ErrorBoundry from "../error-bountry";
 
 export default class PersonPage extends Component {
   swapiServise = new SwapiService();
+
   state = {
     selectedPerson: 3,
   };
@@ -31,7 +32,7 @@ export default class PersonPage extends Component {
 
     const personDetails = (
       <ErrorBoundry>
-        <PersonDetails personId={this.state.selectedPerson} />
+        <ItemDetails itemId={this.state.selectedPerson} />
       </ErrorBoundry>
     );
 
