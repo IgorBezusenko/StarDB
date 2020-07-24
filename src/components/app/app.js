@@ -4,7 +4,7 @@ import Header from "../header";
 import RandomPlanet from "../random-planet";
 import ErrorIndicator from "../error-indicator";
 import ErrorBoundry from "../error-bountry";
-
+import ItemList from "../item-list";
 import "./app.css";
 import Row from "../row";
 import ItemDetails, { Record } from "../item-details/item-details";
@@ -41,6 +41,8 @@ export default class App extends Component {
       getStarship,
       getPersonImage,
       getStarshipImage,
+      getAllPeople,
+      getAllPlanets,
     } = this.swapiServise;
 
     const personDetails = (
@@ -57,7 +59,7 @@ export default class App extends Component {
         getImageUrl={getStarshipImage}
       >
         <Record field="model" label="Model" />
-        <Record field="length" label="Length" />
+        <Record field="length " label="Length" />
         <Record field="costInCredits" label="Const" />
       </ItemDetails>
     );
@@ -80,7 +82,15 @@ export default class App extends Component {
 
         <PersonPage /> */}
 
-          <Row left={personDetails} right={starshipDetails} />
+          {/* <Row left={personDetails} right={starshipDetails} /> */}
+
+          <ItemList getData={getAllPeople} onItemSelected={() => {}}>
+            {({ name }) => <span>{name}</span>}
+          </ItemList>
+
+          <ItemList getData={getAllPlanets} onItemSelected={() => {}}>
+            {({ name }) => <span>{name}</span>}
+          </ItemList>
         </div>
       </ErrorBoundry>
     );
