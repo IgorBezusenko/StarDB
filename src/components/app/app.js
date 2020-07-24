@@ -2,16 +2,13 @@ import React, { Component } from "react";
 
 import Header from "../header";
 import RandomPlanet from "../random-planet";
-import ErrorButton from "../error-button";
 import ErrorIndicator from "../error-indicator";
-import PersonPage from "../person-page";
-import ItemList from "../item-list";
-import ItemDetails from "../item-details";
-import SwapiService from "../../services/swapi-service";
-import Row from "../row";
 import ErrorBoundry from "../error-bountry";
 
 import "./app.css";
+import Row from "../row";
+import ItemDetails, { Record } from "../item-details/item-details";
+import SwapiService from "../../services/swapi-service";
 
 export default class App extends Component {
   swapiServise = new SwapiService();
@@ -47,11 +44,10 @@ export default class App extends Component {
     } = this.swapiServise;
 
     const personDetails = (
-      <ItemDetails
-        itemId={11}
-        getData={getPerson}
-        getImageUrl={getPersonImage}
-      />
+      <ItemDetails itemId={11} getData={getPerson} getImageUrl={getPersonImage}>
+        <Record field="gender" label="Gender" />
+        <Record field="eyeColor" label="Eye Color" />
+      </ItemDetails>
     );
 
     const starshipDetails = (
@@ -59,7 +55,11 @@ export default class App extends Component {
         itemId={5}
         getData={getStarship}
         getImageUrl={getStarshipImage}
-      />
+      >
+        <Record field="model" label="Model" />
+        <Record field="length" label="Length" />
+        <Record field="costInCredits" label="Const" />
+      </ItemDetails>
     );
 
     return (
