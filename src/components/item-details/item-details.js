@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-import "./item-details.css";
-import SwapiService from "../../services/swapi-service";
 import ErrorButton from "../error-button/error-button";
+
+import "./item-details.css";
 
 const Record = ({ item, field, label }) => {
   return (
@@ -16,8 +16,6 @@ const Record = ({ item, field, label }) => {
 export { Record };
 
 export default class ItemDetails extends Component {
-  swapiService = new SwapiService();
-
   state = {
     item: null,
     image: null,
@@ -40,17 +38,20 @@ export default class ItemDetails extends Component {
     }
 
     getData(itemId).then((item) => {
-      this.setState({ item, image: getImageUrl(item) });
+      this.setState({
+        item,
+        image: getImageUrl(item),
+      });
     });
   }
 
   render() {
     const { item, image } = this.state;
     if (!item) {
-      return <span>Select a person from a list</span>;
+      return <span>Select a item from a list</span>;
     }
 
-    const { id, name, gender, birthYear, eyeColor } = item;
+    const { name } = item;
 
     return (
       <div className="item-details card">
