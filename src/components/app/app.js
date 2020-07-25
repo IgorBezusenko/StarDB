@@ -9,6 +9,9 @@ import "./app.css";
 import Row from "../row";
 import ItemDetails, { Record } from "../item-details/item-details";
 import SwapiService from "../../services/swapi-service";
+
+import { SwapiServiceProvider } from "../swapi-service-context";
+
 import {
   PersonList,
   PlanetList,
@@ -74,9 +77,10 @@ export default class App extends Component {
 
     return (
       <ErrorBoundry>
-        <div className="stardb-app">
-          <Header />
-          {/* {planet}
+        <SwapiServiceProvider value={this.swapiServise}>
+          <div className="stardb-app">
+            <Header />
+            {/* {planet}
 
         <div className="row mb2 button-row">
           <button
@@ -90,18 +94,19 @@ export default class App extends Component {
 
         <PersonPage /> */}
 
-          {/* <Row left={personDetails} right={starshipDetails} /> */}
+            {/* <Row left={personDetails} right={starshipDetails} /> */}
 
-          <PersonDetails itemId={11} />
-          <PlanetDetails itemId={5} />
-          <StarshipDetails itemId={9} />
+            <PersonDetails itemId={11} />
+            <PlanetDetails itemId={5} />
+            <StarshipDetails itemId={9} />
 
-          <PersonList />
+            <PersonList />
 
-          <PlanetList />
+            <PlanetList />
 
-          <StarshipList />
-        </div>
+            <StarshipList />
+          </div>
+        </SwapiServiceProvider>
       </ErrorBoundry>
     );
   }
