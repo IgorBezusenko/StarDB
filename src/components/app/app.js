@@ -23,7 +23,7 @@ import {
 } from "../sw-component";
 
 export default class App extends Component {
-  swapiServise = new DummySwapiService();
+  swapiServise = new SwapiService();
 
   state = {
     showRandomPlanet: true,
