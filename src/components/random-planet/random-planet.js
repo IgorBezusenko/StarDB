@@ -6,6 +6,21 @@ import ErrorIndicator from "../error-indicator";
 import "./random-planet.css";
 
 export default class RandomPlanet extends Component {
+  static defaultProps = {
+    updateInterval: 10000,
+  };
+
+  static propTypes = {
+    updateInterval: (props, propsName, componentName) => {
+      const value = props[propsName];
+
+      if (typeof value === "number" && !isNaN(value)) {
+        return null;
+      }
+      return new TypeError(`${componentName}: ${propsName} must be number`);
+    },
+  };
+
   swapiService = new SwapiService();
 
   state = { planet: {}, loading: true, error: false };
@@ -54,10 +69,6 @@ export default class RandomPlanet extends Component {
     );
   }
 }
-
-RandomPlanet.defaultProps = {
-  updateInterval: 10000,
-};
 
 const PlanetView = ({ planet }) => {
   const { id, name, population, rotationPeriod, diameter } = planet;
