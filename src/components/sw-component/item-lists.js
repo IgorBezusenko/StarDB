@@ -39,7 +39,7 @@ const PersonList = compose(
 )(ItemList);
 
 const PlanetList = compose(
-  withSwapiService(mapPersonMethodsToProps),
+  withSwapiService(mapPlanetMethodsToProps),
   withData,
   withChildFunction(renderName)
 )(ItemList);
