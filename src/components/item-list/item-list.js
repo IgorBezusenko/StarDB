@@ -3,6 +3,7 @@ import React from "react";
 import "./item-list.css";
 import SwapiService from "../../services/swapi-service";
 import { withData } from "../hoc-halper";
+import propTypes from "prop-types";
 
 const ItemList = (props) => {
   const { data, onItemSelected, children: renderLabel } = props;
@@ -27,6 +28,12 @@ const ItemList = (props) => {
 
 ItemList.defaultProps = {
   onItemSelected: () => {},
+};
+
+ItemList.propTypes = {
+  onItemSelected: propTypes.func,
+  data: propTypes.arrayOf(propTypes.object).isRequired,
+  children: propTypes.func.isRequired,
 };
 
 const { getAllPeople } = new SwapiService();

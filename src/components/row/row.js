@@ -1,5 +1,6 @@
 import React from "react";
 import "./row.css";
+import propTypes from "prop-types";
 
 const Row = ({ left, right }) => {
   return (
@@ -8,6 +9,11 @@ const Row = ({ left, right }) => {
       <div className="col-md-6">{right}</div>
     </div>
   );
+};
+
+Row.propTypes = {
+  left: propTypes.node,
+  right: propTypes.node,
 };
 
 export default Row;
