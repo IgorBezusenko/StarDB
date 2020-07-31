@@ -4,7 +4,7 @@ import { PlanetDetails, PlanetList } from "../sw-component";
 
 export default class PlanetPage extends Component {
   state = {
-    selectedItem: 1,
+    selectedItem: null,
   };
 
   onItemSelected = (selectedItem) => {

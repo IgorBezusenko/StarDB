@@ -4,7 +4,7 @@ import { PersonDetails, PersonList } from "../sw-component";
 
 export default class PeoplePage extends Component {
   state = {
-    selectedItem: 1,
+    selectedItem: null,
   };
 
   onItemSelected = (selectedItem) => {
